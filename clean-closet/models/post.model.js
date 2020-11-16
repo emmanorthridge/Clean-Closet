@@ -10,6 +10,7 @@ const postSchema = new Schema(
           link: String,
           intro: String,
           creator: { type: Schema.Types.ObjectId, ref: 'User' },
+          price: { type: [String], enum: ['$', '$$', '$$$'], required: true}
         },
         {
             timestamps: true,
