@@ -1,2 +1,2 @@
 # Clean-Closet
-A website for sustainable and ethical fashion
+A website for sustainable and ethical fashion! 
