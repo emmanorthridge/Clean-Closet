@@ -1,0 +1,29 @@
+<div class="signup">
+
+    <h2>SIGN UP:</h2>
+    <form action="/signup" method="POST">
+
+        <label for="input-username">Username</label>
+        <input type="text" id="input-username" name="username" placeholder="Add username" />
+
+        <label for="input-password">Password</label>
+        <input type="password" id="input-password" name="password" placeholder="*******" />
+
+         <label for="input-name">Name</label>
+        <input type="text" id="input-name" name="name" placeholder="Add Name" />
+
+         <label for="input-last-name">Last Name</label>
+        <input type="text" id="input-last-name" name="lastName" placeholder="Add Lastname" />
+
+         <label for="input-country">Country</label>
+        <input type="text" id="input-country" name="country" placeholder="Add country" />
+
+        <button type="submit">Create Account</button>
+
+    </form>
+
+    {{#if errorMessage}}
+    <p class="error">{{errorMessage}}</p>
+    {{/if}}
+
+</div>
