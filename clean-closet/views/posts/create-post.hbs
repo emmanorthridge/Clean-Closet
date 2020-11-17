@@ -1,6 +1,6 @@
 <h2>CREATE POST</h2>
 
-<form action="/create-post" method="post">
+<form action="/create-post" method="post" enctype="multipart/form-data">
 
   <label for="picture">Picture: </label>
   <input type="file" name="image" id="" />
@@ -13,6 +13,9 @@
 
   <label for="link">Link </label>
   <input type="text" id="link" name="link" required>
+
+ {{!--  <label for="username">Username</label>
+  <input type="text" id="username" name="username" required> --}}
 
   <button type='submit'>Create Post</button>
 </form>

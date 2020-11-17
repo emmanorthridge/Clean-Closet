@@ -4,11 +4,21 @@
     <h2>Welcome, {{ userInSession.username }}!</h2>
     <p>you are {{userInSession.name}} {{userInSession.lastName}}</p>
     <button>
-        <a href="/userProfile">Reload the page</a>
-    </button>
-    <button>
         <a href="/create-post">Create a Post!</a>
     </button>
+    {{#each userInSession.posts}}
+    <h2>{{this.title}}</h2>
+    {{/each}}
 {{else}}
-    <p>Still no logged in user, sorry!</p>
+    <p>Please Sign up/ Log in</p>
 {{/if}}
+
+    <button>
+        <a href="/posts">Check out all the Post!</a>
+    </button>
+
+
+
+
+    
+
