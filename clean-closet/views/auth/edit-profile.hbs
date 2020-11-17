@@ -1,0 +1,18 @@
+<div class="container-fluid text-center">
+    <h2>Edit your profile !</h2>
+
+    <form action="/auth/{{this.id}}/edit" method="POST">
+
+         <label for="input-name">Name </label>
+        <input type="text" value="{{this.name}}" id="input-name" name="name" placeholder="Add Name" />
+
+         <label for="input-last-name">Last Name</label>
+        <input type="text" value="{{this.lastName}}" id="input-last-name" name="lastName" placeholder="Add Lastname" />
+
+         <label for="input-country">Country</label>
+        <input type="text" value="{{this.country}}" id="input-country" name="country" placeholder="Add country" />
+
+        <button type="submit">Edit Account</button>
+
+    </form>
+</div>

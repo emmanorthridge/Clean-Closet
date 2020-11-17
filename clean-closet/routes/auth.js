@@ -9,6 +9,8 @@ router.get("/signup", (req, res) => res.render("auth/signup"));
 const saltRounds = 10;
 
 router.post("/signup", (req, res, next) => {
+  //console.log('SESSION =====> ', req.session);
+
   const { username, password, name, lastName, country } = req.body;
 
   if (!username || !password) {
@@ -42,6 +44,7 @@ router.post("/signup", (req, res, next) => {
     })
     .then((userFromDB) => {
       console.log("Newly created user is: ", userFromDB);
+      req.session.currentUser = userFromDB;
       res.redirect("/userProfile");
     })
     .catch((error) => {
@@ -59,6 +62,8 @@ router.post("/signup", (req, res, next) => {
 router.get("/login", (req, res) => res.render("auth/login"));
 
 router.post("/login", (req, res, next) => {
+  console.log('SESSION =====> ', req.session);
+
   const { username, password } = req.body;
   if (!username || !password) {
     res.render("auth/login", {
@@ -76,6 +81,7 @@ router.post("/login", (req, res, next) => {
         });
         return;
       } else if (bcryptjs.compareSync(password, user.password)) {
+        req.session.currentUser = user;
         res.redirect("/userProfile");
       } else {
         res.render("auth/login", { errorMessage: "Incorrect password." });
@@ -84,6 +90,29 @@ router.post("/login", (req, res, next) => {
     .catch((error) => next(error));
 });
 
-router.get("/userProfile", (req, res) => res.render("auth/profile"));
+router.get('/userProfile', (req, res) => {
+  res.render('auth/profile', { userInSession: req.session.currentUser });
+});
+
+/* router.get("/auth/:id/edit-profile", (req, res) =>{
+  const { id } = req.params;
+
+  User.findById(id)
+  .then((userEdit) => {
+    res.render("/edit-profile", userEdit);
+  })
+  .catch((err) => console.log(err));
+}); */
+
+
+
+router.get("/logout", (req, res) => {
+  res.redirect("/");
+});
+
+router.post("/logout", (req, res) => {
+  req.session.destroy();
+  res.redirect("/");
+});
 
 module.exports = router;

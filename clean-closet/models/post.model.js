@@ -9,8 +9,9 @@ const postSchema = new Schema(
           country: String,
           link: String,
           intro: String,
+          liked: [{ type: Schema.Types.ObjectId, ref: 'User' }],
           creator: { type: Schema.Types.ObjectId, ref: 'User' },
-          price: { type: [String], enum: ['$', '$$', '$$$'], required: true}
+          price: { type: [String], enum: ['$', '$$', '$$$'], required: true }
         },
         {
             timestamps: true,
