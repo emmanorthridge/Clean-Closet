@@ -4,25 +4,24 @@ const url = "https://via.placeholder.com/150C/O https://placeholder.com/#How_To_
 
 const userSchema = new Schema(
         { 
-          // picture: { type: String, default: url },
+          picture: { type: String, default: url },
           username: {
             type: String,
             unique: true,
             required: [true, '❌ Username is required.'],
             },
-          likes: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
+          //likes: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
           name: String,
           lastName: String,
           country: String,
-          post: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
+          posts: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
           password: {
             type: String,
             required: [true, '❌ Password is required.']
           }
         },
         {
-            timestamps: true,
-            
+            timestamps: true,   
         }
 );
 

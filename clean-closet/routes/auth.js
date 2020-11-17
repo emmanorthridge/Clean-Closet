@@ -92,7 +92,11 @@ router.post("/login", (req, res, next) => {
 });
 
 router.get('/userProfile', (req, res) => {
-  res.render('auth/profile', { userInSession: req.session.currentUser });
+  User.find({ _id : req.session.currentUser._id })
+    .populate("posts")
+    .then((userWithPosts) => {
+      res.render('auth/profile', { userInSession: req.session.currentUser });
+    })
 });
 
 /* router.get("/auth/:id/edit-profile", (req, res) =>{
@@ -107,6 +111,7 @@ router.get('/userProfile', (req, res) => {
 
 router.get("/posts", (req, res, next) => {
   Post.find({})
+    .populate("author")
     .then((postsFromDB) => {
       res.render("posts/post-list", { posts: postsFromDB });
     })
@@ -116,18 +121,21 @@ router.get("/posts", (req, res, next) => {
 });
 
 router.get("/create-post", (req, res) => {
-  res.render("posts/create-post")
-})
+  res.render("posts/create-post");
+});
 
 router.post('/create-post', fileUploader.single('image'), (req, res) => {
   const { title, country, link } = req.body;
- 
-  Post.create({ title, country, link, imageUrl: req.file.path })
+  //console.log(req.file)
+  Post.create({ title, country, link, picture: req.file.path })
+    .then(dbPost => {
+    return User.findByIdAndUpdate({_id: req.session.currentUser._id }, { $push: { posts: dbPost._id } });
+    })
     .then(() => res.redirect('/userProfile'))
     .catch(error => console.log(`Error while creating a new post: ${error}`));
 });
- 
-module.exports = router;
+
+
 
 
 router.get("/logout", (req, res) => {

@@ -1,5 +1,3 @@
-// configs/cloudinary.config.js
-
 const cloudinary = require('cloudinary').v2;
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const multer = require('multer');
@@ -11,14 +9,12 @@ cloudinary.config({
 });
 
 const storage = new CloudinaryStorage({
-  // cloudinary: cloudinary,
-  cloudinary,
-  folder: 'clean-closet', // The name of the folder in cloudinary
-  allowedFormats: ['jpg', 'png'],
-  // params: { resource_type: 'raw' }, => this is in case you want to upload other type of files, not just images
-  filename: function (req, file, cb) {
-    cb(null, file.originalname); // The file on cloudinary would have the same name as the original file name
-  }
+  cloudinary: cloudinary,
+  params: {
+    folder: "clean-closet", // The name of the folder in cloudinary.
+    allowedFormats: ["jpg", "png"], // The allowed formats of files to upload to cloudinary.
+    use_filename: true, // Give the file a name to refer to when uploading to cloudinary.
+  },
 });
 
 //                        storage: storage
