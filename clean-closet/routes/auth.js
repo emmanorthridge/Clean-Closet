@@ -3,6 +3,7 @@ const router = new Router();
 const User = require("../models/users.model");
 const Post = require("../models/post.model");
 const bcryptjs = require("bcryptjs");
+const fileUploader = require('../configs/cloudinary.config');
 
 router.get("/signup", (req, res) => res.render("auth/signup"));
 
@@ -104,6 +105,29 @@ router.get('/userProfile', (req, res) => {
   .catch((err) => console.log(err));
 }); */
 
+router.get("/posts", (req, res, next) => {
+  Post.find({})
+    .then((postsFromDB) => {
+      res.render("posts/post-list", { posts: postsFromDB });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+router.get("/create-post", (req, res) => {
+  res.render("posts/create-post")
+})
+
+router.post('/create-post', fileUploader.single('image'), (req, res) => {
+  const { title, country, link } = req.body;
+ 
+  Post.create({ title, country, link, imageUrl: req.file.path })
+    .then(() => res.redirect('/userProfile'))
+    .catch(error => console.log(`Error while creating a new post: ${error}`));
+});
+ 
+module.exports = router;
 
 
 router.get("/logout", (req, res) => {
