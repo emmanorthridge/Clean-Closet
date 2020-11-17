@@ -10,6 +10,7 @@ const userSchema = new Schema(
             unique: true,
             required: [true, '❌ Username is required.'],
             },
+          likes: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
           name: String,
           lastName: String,
           country: String,
