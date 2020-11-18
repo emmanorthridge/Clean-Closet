@@ -10,8 +10,6 @@ router.get("/signup", (req, res) => res.render("auth/signup"));
 const saltRounds = 10;
 
 router.post("/signup", fileUploader.single("image"), (req, res, next) => {
-  //console.log('SESSION =====> ', req.session);
-
   const { username, password, name, lastName, country } = req.body;
 
   if (!username || !password) {
@@ -53,7 +51,6 @@ router.post("/signup", fileUploader.single("image"), (req, res, next) => {
       });
     })
     .then((userFromDB) => {
-      //console.log("Newly created user is: ", userFromDB);
       req.session.currentUser = userFromDB;
       res.redirect("/userProfile");
     })
@@ -72,8 +69,6 @@ router.post("/signup", fileUploader.single("image"), (req, res, next) => {
 router.get("/login", (req, res) => res.render("auth/login"));
 
 router.post("/login", (req, res, next) => {
-  console.log("SESSION =====> ", req.session);
-
   const { username, password } = req.body;
   if (!username || !password) {
     res.render("auth/login", {
@@ -112,16 +107,6 @@ router.get("/userProfile", (req, res) => {
       console.log("❗️ could not render the profile page with you user's posts")
     );
 });
-
-/* router.get("/auth/:id/edit-profile", (req, res) =>{
-  const { id } = req.params;
-
-  User.findById(id)
-  .then((userEdit) => {
-    res.render("/edit-profile", userEdit);
-  })
-  .catch((err) => console.log(err));
-}); */
 
 router.get("/posts", (req, res, next) => {
   Post.find({})
