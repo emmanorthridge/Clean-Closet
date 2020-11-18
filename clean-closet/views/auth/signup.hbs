@@ -1,7 +1,10 @@
 <div class="signup">
 
     <h2>SIGN UP:</h2>
-    <form action="/signup" method="POST">
+    <form action="/signup" method="POST"  enctype="multipart/form-data">
+
+        <label for="picture">Profile picture: </label>
+        <input type="file" name="image" id="" />
 
         <label for="input-username">Username</label>
         <input type="text" id="input-username" name="username" placeholder="Add username" />

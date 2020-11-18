@@ -9,7 +9,7 @@ router.get("/signup", (req, res) => res.render("auth/signup"));
 
 const saltRounds = 10;
 
-router.post("/signup", (req, res, next) => {
+router.post("/signup", fileUploader.single("image"), (req, res, next) => {
   //console.log('SESSION =====> ', req.session);
 
   const { username, password, name, lastName, country } = req.body;
@@ -31,6 +31,14 @@ router.post("/signup", (req, res, next) => {
     return;
   }
 
+  let image;
+
+  if (req.file !== undefined) {
+    image = req.file.path;
+  } else {
+    image = "/images/user.png";
+  }
+
   bcryptjs
     .genSalt(saltRounds)
     .then((salt) => bcryptjs.hash(password, salt))
@@ -41,6 +49,7 @@ router.post("/signup", (req, res, next) => {
         lastName,
         country,
         password: hashedPassword,
+        picture: image
       });
     })
     .then((userFromDB) => {
