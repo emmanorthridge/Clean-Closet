@@ -4,7 +4,7 @@ const { Schema, model } = mongoose;
 
 const postSchema = new Schema(
         { 
-          picture: { type: String, default: ("../public/images/paper-bag.png") },
+          picture: String,
           title: String,
           country: String,
           link: String,
