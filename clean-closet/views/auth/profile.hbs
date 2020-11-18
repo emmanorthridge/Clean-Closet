@@ -1,26 +1,28 @@
 <h2>USER PROFILE</h2>
 
-{{#if userInSession}}
-    <h2>Welcome, {{ userInSession.username }}!</h2>
-    <p>you are {{userInSession.name}} {{userInSession.lastName}}</p>
-    <button>
-        <a href="/create-post">Create a Post!</a>
-    </button>
-   
-    <p>you have {{userInSession.posts.length}} post </p>
+    {{#if userInSession}}
+        <img src="{{userInSession.picture}}" alt="{{userInSession.username}}" width="100px">
+        <h2>Welcome, {{ userInSession.username }}!</h2>
+        <p>you are {{userInSession.name}} {{userInSession.lastName}}</p>
+        <button>
+            <a href="/create-post">Create a Post!</a>
+        </button>
     
-        {{#each userInSession.posts}}
-            <img src="{{this.picture}}" alt="{{this.title}}" width="50px">
-            <p>{{this.title}}</p>
-            <p>{{this.link}}</p>
-            <p>{{this.country}}</p>
-            <a href="/edit"><button>Edit post</button></a>
-            <a href="/delete"><button>Delete post</button></a>
-        {{/each}}
-    
-{{else}}
-    <p>Please Sign up/ Log in</p>
-{{/if}}
+        <p>you have {{userInSession.posts.length}} post </p>
+        
+            {{#each userInSession.posts}}
+                <img src="{{this.picture}}" alt="{{this.title}}" width="50px">
+                <p>{{this.title}}</p>
+                <p>About {{this.title}} : {{this.intro}}</p>
+                <p>Located in: {{this.country}}</p>
+                <a href="{{this.link}}">Checkout the Website</a>
+                <a href="/userProfile/{{this.id}}/edit"><button>Edit post</button></a>
+                <form action="/posts/{{this._id}}/delete" method="POST"><button type="submit">Delete post</button>
+            {{/each}}
+
+    {{else}}
+        <p>Please Sign up/ Log in</p>
+    {{/if}}
 
 
     <button>
@@ -30,5 +32,5 @@
 
 
 
-    //test
+   
 

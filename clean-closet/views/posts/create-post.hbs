@@ -6,32 +6,27 @@
   <input type="file" name="image" id="" />
 
   <label for="title">Title: </label>
-  <input type="text" id="title" name="title" required>
+  <input type="text" id="title" name="title"  required>
 
   <label for="country">Country: </label>
-  <input type="text" id="propellers" name="country" required>
+  <input type="text" id="country" name="country"  required>
 
-  <label for="link">Link </label>
-  <input type="text" id="link" name="link" required>
+  <label for="link">Brand's Website </label>
+  <input type="url" id="link" name="link" required>
 
- {{!--  <label for="username">Username</label>
-  <input type="text" id="username" name="username" required> --}}
+  <label for="brandsName">Brand's Name </label>
+  <input type="text" id="brandsName" name="brandsName" required>
+
+  <label for="intro">Tell us about the brand:  </label>
+  <input type="text" id="intro" name="intro" required>
+
+  {{!-- <label>Price Range</label>
+             <select id = "price">
+               <option value = "$">$</option>
+               <option value = "$$">$$</option>
+               <option value = "$$$">$$$</option>
+             </select> --}}
 
   <button type='submit'>Create Post</button>
 </form>
 
-{{!-- onst postSchema = new Schema(
-        { 
-          picture: { type: String, default: url },
-          title: String,
-          country: String,
-          link: String,
-          intro: String,
-          liked: [{ type: Schema.Types.ObjectId, ref: 'User' }],
-          creator: { type: Schema.Types.ObjectId, ref: 'User' },
-          price: { type: [String], enum: ['$', '$$', '$$$'], required: true }
-        },
-        {
-            timestamps: true,
-        }
-); --}}
