@@ -7,6 +7,7 @@ const postSchema = new Schema(
           picture: String,
           title: String,
           country: String,
+          brandsName: String,
           link: String,
           intro: String,
           //liked: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
