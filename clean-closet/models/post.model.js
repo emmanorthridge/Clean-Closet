@@ -7,7 +7,7 @@ const postSchema = new Schema(
           title: String,
           country: String,
           brandsName: String,
-          link: String,
+          link: { type: String, unique: true },
           intro: String
         },
         {
