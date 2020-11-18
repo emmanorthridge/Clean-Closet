@@ -15,9 +15,9 @@
             <p>{{this.link}}</p>
             <p>{{this.country}}</p>
             <a href="/edit"><button>Edit post</button></a>
-            <a href="/delete"><button>Delete post</button></a>
+            <form action="/posts/{{this._id}}/delete" method="POST"><button type="submit">Delete post</button>
         {{/each}}
-    
+
 {{else}}
     <p>Please Sign up/ Log in</p>
 {{/if}}
@@ -30,5 +30,5 @@
 
 
 
-    //test
+   
 

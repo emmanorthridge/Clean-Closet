@@ -3,7 +3,7 @@ const router = new Router();
 const User = require("../models/users.model");
 const Post = require("../models/post.model");
 const bcryptjs = require("bcryptjs");
-const fileUploader = require('../configs/cloudinary.config');
+const fileUploader = require("../configs/cloudinary.config");
 
 router.get("/signup", (req, res) => res.render("auth/signup"));
 
@@ -63,7 +63,7 @@ router.post("/signup", (req, res, next) => {
 router.get("/login", (req, res) => res.render("auth/login"));
 
 router.post("/login", (req, res, next) => {
-  console.log('SESSION =====> ', req.session);
+  console.log("SESSION =====> ", req.session);
 
   const { username, password } = req.body;
   if (!username || !password) {
@@ -91,15 +91,17 @@ router.post("/login", (req, res, next) => {
     .catch((error) => next(error));
 });
 
-router.get('/userProfile', (req, res) => {
-  User.findById( req.session.currentUser._id )
+router.get("/userProfile", (req, res) => {
+  User.findById(req.session.currentUser._id)
     .populate("posts")
     .then((userInSession) => {
       console.log(userInSession);
-      console.log(req.session.currentUser );
-      res.render('auth/profile', { userInSession });
+      console.log(req.session.currentUser);
+      res.render("auth/profile", { userInSession });
     })
-    .catch((err) => console.log("❗️ could not render the profile page with you user's posts"));
+    .catch((err) =>
+      console.log("❗️ could not render the profile page with you user's posts")
+    );
 });
 
 /* router.get("/auth/:id/edit-profile", (req, res) =>{
@@ -127,7 +129,7 @@ router.get("/create-post", (req, res) => {
   res.render("posts/create-post");
 });
 
-router.post('/create-post', fileUploader.single('image'), (req, res) => {
+router.post("/create-post", fileUploader.single("image"), (req, res) => {
   const { title, country, link } = req.body;
   //console.log(req.file)
   let image;
@@ -135,18 +137,25 @@ router.post('/create-post', fileUploader.single('image'), (req, res) => {
   if (req.file !== undefined) {
     image = req.file.path;
   } else {
-    image = ("/images/paper-bag.png");
+    image = "/images/paper-bag.png";
   }
   Post.create({ title, country, link, picture: image })
-    .then(dbPost => {
-    return User.findByIdAndUpdate({_id: req.session.currentUser._id }, { $push: { posts: dbPost._id } });
+    .then((dbPost) => {
+      return User.findByIdAndUpdate(
+        { _id: req.session.currentUser._id },
+        { $push: { posts: dbPost._id } }
+      );
     })
-    .then(() => res.redirect('/userProfile' ))
-    .catch(error => console.log(`Error while creating a new post: ${error}`));
+    .then(() => res.redirect("/userProfile"))
+    .catch((error) => console.log(`Error while creating a new post: ${error}`));
 });
 
-
-
+router.post("/posts/:id/delete", (req, res, next) => {
+  const { id } = req.params;
+  Post.findByIdAndDelete(id)
+    .then(() => res.redirect("/userProfile"))
+    .catch((error) => console.log(error));
+});
 
 router.get("/logout", (req, res) => {
   res.redirect("/");
