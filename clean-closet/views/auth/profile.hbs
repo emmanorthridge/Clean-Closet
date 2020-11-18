@@ -6,12 +6,19 @@
     <button>
         <a href="/create-post">Create a Post!</a>
     </button>
-    {{#each userInSession.posts}}
-    <h2>{{this.title}}</h2>
-    {{/each}}
+   
+    <p>you have {{userInSession.posts.length}} post </p>
+    <ul>
+        {{#each userInSession.posts}}
+        <li><p>{{this.title}}</p></li>
+        {{/each}}
+    </ul>
+
+   
 {{else}}
     <p>Please Sign up/ Log in</p>
 {{/if}}
+
 
     <button>
         <a href="/posts">Check out all the Post!</a>

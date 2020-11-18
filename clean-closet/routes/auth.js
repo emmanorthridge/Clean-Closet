@@ -92,11 +92,14 @@ router.post("/login", (req, res, next) => {
 });
 
 router.get('/userProfile', (req, res) => {
-  User.find({ _id : req.session.currentUser._id })
+  User.findById( req.session.currentUser._id )
     .populate("posts")
-    .then((userWithPosts) => {
-      res.render('auth/profile', { userInSession: req.session.currentUser });
+    .then((userInSession) => {
+      console.log(userInSession);
+      console.log(req.session.currentUser );
+      res.render('auth/profile', { userInSession });
     })
+    .catch((err) => console.log("❗️ could not render the profile page with you user's posts"));
 });
 
 /* router.get("/auth/:id/edit-profile", (req, res) =>{
@@ -127,11 +130,18 @@ router.get("/create-post", (req, res) => {
 router.post('/create-post', fileUploader.single('image'), (req, res) => {
   const { title, country, link } = req.body;
   //console.log(req.file)
-  Post.create({ title, country, link, picture: req.file.path })
+  let image;
+
+  if (req.file !== undefined) {
+    image = req.file.path;
+  } else {
+    image = ("/images/paper-bag.png");
+  }
+  Post.create({ title, country, link, picture: image })
     .then(dbPost => {
     return User.findByIdAndUpdate({_id: req.session.currentUser._id }, { $push: { posts: dbPost._id } });
     })
-    .then(() => res.redirect('/userProfile'))
+    .then(() => res.redirect('/userProfile' ))
     .catch(error => console.log(`Error while creating a new post: ${error}`));
 });
 
