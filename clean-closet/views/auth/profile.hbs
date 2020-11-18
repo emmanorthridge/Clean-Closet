@@ -8,13 +8,16 @@
     </button>
    
     <p>you have {{userInSession.posts.length}} post </p>
-    <ul>
+    
         {{#each userInSession.posts}}
-        <li><p>{{this.title}}</p></li>
+            <img src="{{this.picture}}" alt="{{this.title}}" width="50px">
+            <p>{{this.title}}</p>
+            <p>{{this.link}}</p>
+            <p>{{this.country}}</p>
+            <a href="/edit"><button>Edit post</button></a>
+            <a href="/delete"><button>Delete post</button></a>
         {{/each}}
-    </ul>
-
-   
+    
 {{else}}
     <p>Please Sign up/ Log in</p>
 {{/if}}
