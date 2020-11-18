@@ -139,7 +139,7 @@ router.get("/create-post", (req, res) => {
 });
 
 router.post("/create-post", fileUploader.single("image"), (req, res) => {
-  const { title, country, link } = req.body;
+  const { title, country, link, intro } = req.body;
   //console.log(req.file)
   let image;
 
@@ -148,7 +148,7 @@ router.post("/create-post", fileUploader.single("image"), (req, res) => {
   } else {
     image = "/images/paper-bag.png";
   }
-  Post.create({ title, country, link, picture: image })
+  Post.create({ title, country, link, intro, picture: image })
     .then((dbPost) => {
       return User.findByIdAndUpdate(
         { _id: req.session.currentUser._id },
@@ -171,11 +171,11 @@ router.get("/userProfile/:id/edit", (req, res) => {
 
 router.post('/userProfile/:id/edit', (req, res, next) => {
   const { id } = req.params;
-  const { title, country, link } = req.body;
+  const { title, country, link, intro } = req.body;
 
   Post.findByIdAndUpdate(
     id,
-    { title, country, link },
+    { title, country, link, intro },
     { new: true}
   )
     .then((updatedPost) => res.redirect("/userProfile"))

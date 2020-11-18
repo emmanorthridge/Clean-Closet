@@ -8,10 +8,11 @@
                
                     {{#each posts}}
                     <div class="col-4">
-                        <img src="{{this.picture}}" alt="{{this.title}}" height="200px">
-                        <h1>Post: {{this.title}}</h1>
-                        <p>located in: {{this.country}}</p>
-                        <a href="{{this.link}}">{{this.brandsName}}</a>
+                        <img src="{{this.picture}}" alt="{{this.title}}" width="50px">
+                        <p>{{this.title}}</p>
+                        <p>About {{this.title}}: {{this.intro}}</p>
+                        <p>Located in: {{this.country}}</p>
+                        <a href="{{this.link}}">Checkout the Website</a>
                     </div>
                     {{/each}}
             
