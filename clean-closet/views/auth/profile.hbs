@@ -12,8 +12,8 @@
         {{#each userInSession.posts}}
             <img src="{{this.picture}}" alt="{{this.title}}" width="50px">
             <p>{{this.title}}</p>
-            <p>{{this.link}}</p>
             <p>{{this.country}}</p>
+            <a href="{{this.link}}">Checkout the Website</a>
             <a href="/userProfile/{{this.id}}/edit"><button>Edit post</button></a>
             <form action="/posts/{{this._id}}/delete" method="POST"><button type="submit">Delete post</button>
         {{/each}}
