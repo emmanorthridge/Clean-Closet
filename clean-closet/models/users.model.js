@@ -4,7 +4,7 @@ const url = "https://via.placeholder.com/150C/O https://placeholder.com/#How_To_
 
 const userSchema = new Schema(
         { 
-          picture: { type: String, default: url },
+          picture: String,
           username: {
             type: String,
             unique: true,

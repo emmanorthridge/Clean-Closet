@@ -1,6 +1,7 @@
 <h2>USER PROFILE</h2>
 
 {{#if userInSession}}
+    <img src="{{userInSession.picture}}" alt="{{userInSession.username}}" width="100px">
     <h2>Welcome, {{ userInSession.username }}!</h2>
     <p>you are {{userInSession.name}} {{userInSession.lastName}}</p>
     <button>
