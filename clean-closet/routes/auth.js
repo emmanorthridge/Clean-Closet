@@ -145,7 +145,28 @@ router.post('/create-post', fileUploader.single('image'), (req, res) => {
     .catch(error => console.log(`Error while creating a new post: ${error}`));
 });
 
+router.get("/userProfile/:id/edit", (req, res) => {
+  const { id } = req.params;
+  
+  Post.findById(id)
+    .then((postToEdit) => {
+      res.render("posts/edit-post", postToEdit)
+    })
+    .catch((err) => console.log(`Could not render the editing page for the post: ${err}`))
+});
 
+router.post('/userProfile/:id/edit', (req, res, next) => {
+  const { id } = req.params;
+  const { title, country, link } = req.body;
+
+  Post.findByIdAndUpdate(
+    id,
+    { title, country, link },
+    { new: true}
+  )
+    .then((updatedPost) => res.redirect("/userProfile"))
+    .catch((err) => console.log(`Could not render the drones page : ${err}`))
+});
 
 
 router.get("/logout", (req, res) => {
