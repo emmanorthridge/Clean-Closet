@@ -11,13 +11,12 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-    folder: "clean-closet", // The name of the folder in cloudinary.
-    allowedFormats: ["jpg", "png"], // The allowed formats of files to upload to cloudinary.
-    use_filename: true, // Give the file a name to refer to when uploading to cloudinary.
+    folder: "clean-closet", 
+    allowedFormats: ["jpg", "png"], 
+    use_filename: true, 
   },
 });
 
-//                        storage: storage
 const uploadCloud = multer({ storage });
 
 module.exports = uploadCloud;

@@ -9,21 +9,21 @@
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 <body>
-<div class="container-fluid text-center">
-  <h1>Clean Closet</h1>
-</div>
+    <div class="container-fluid text-center">
+      <h1>Clean Closet</h1>
+    </div>
 
-{{#if userInSession}}
-<div class="container-fluid">
-  <form id="logout-form" action="/logout" method="POST">
-    <button>Logout</button>
-  </form>
-</div>
-{{/if}}
+    {{#if userInSession}}
+    <div class="container-fluid">
+      <form id="logout-form" action="/logout" method="POST">
+        <button>Logout</button>
+      </form>
+    </div>
+    {{/if}}
 
-<div class="container-fluid text-center">
-  {{{body}}}
-</div>
+    <div class="container-fluid text-center">
+      {{{body}}}
+    </div>
   <script src="/javascripts/script.js"></script>
 </body>
 </html>

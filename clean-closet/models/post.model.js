@@ -8,12 +8,7 @@ const postSchema = new Schema(
           country: String,
           brandsName: String,
           link: String,
-          intro: String,
-          //liked: [{ type: Schema.Types.ObjectId, ref: 'Post' }],
-          /* price:{ 
-            type: String,
-            enum: ['$', '$$', '$$$'],
-            required: true } */
+          intro: String
         },
         {
             timestamps: true,
