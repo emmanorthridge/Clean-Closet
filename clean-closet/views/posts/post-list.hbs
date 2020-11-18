@@ -1,0 +1,21 @@
+<div class="container-fluid text-center">
+    <h2>POST LIST</h2>
+
+    
+    <div class="container-fluid text-center">
+        <div class="row">
+            
+               
+                    {{#each posts}}
+                    <div class="col-4">
+                        <img src="{{this.picture}}" alt="{{this.title}}" height="200px">
+                        <h1>Post: {{this.title}}</h1>
+                        <p>located in: {{this.country}}</p>
+                        
+                    </div>
+                    {{/each}}
+            
+            
+         </div> 
+    </div>
+</div>

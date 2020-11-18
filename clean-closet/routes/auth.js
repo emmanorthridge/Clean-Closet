@@ -3,12 +3,15 @@ const router = new Router();
 const User = require("../models/users.model");
 const Post = require("../models/post.model");
 const bcryptjs = require("bcryptjs");
+const fileUploader = require('../configs/cloudinary.config');
 
 router.get("/signup", (req, res) => res.render("auth/signup"));
 
 const saltRounds = 10;
 
 router.post("/signup", (req, res, next) => {
+  //console.log('SESSION =====> ', req.session);
+
   const { username, password, name, lastName, country } = req.body;
 
   if (!username || !password) {
@@ -42,6 +45,7 @@ router.post("/signup", (req, res, next) => {
     })
     .then((userFromDB) => {
       console.log("Newly created user is: ", userFromDB);
+      req.session.currentUser = userFromDB;
       res.redirect("/userProfile");
     })
     .catch((error) => {
@@ -59,6 +63,8 @@ router.post("/signup", (req, res, next) => {
 router.get("/login", (req, res) => res.render("auth/login"));
 
 router.post("/login", (req, res, next) => {
+  console.log('SESSION =====> ', req.session);
+
   const { username, password } = req.body;
   if (!username || !password) {
     res.render("auth/login", {
@@ -76,6 +82,7 @@ router.post("/login", (req, res, next) => {
         });
         return;
       } else if (bcryptjs.compareSync(password, user.password)) {
+        req.session.currentUser = user;
         res.redirect("/userProfile");
       } else {
         res.render("auth/login", { errorMessage: "Incorrect password." });
@@ -84,6 +91,70 @@ router.post("/login", (req, res, next) => {
     .catch((error) => next(error));
 });
 
-router.get("/userProfile", (req, res) => res.render("auth/profile"));
+router.get('/userProfile', (req, res) => {
+  User.findById( req.session.currentUser._id )
+    .populate("posts")
+    .then((userInSession) => {
+      console.log(userInSession);
+      console.log(req.session.currentUser );
+      res.render('auth/profile', { userInSession });
+    })
+    .catch((err) => console.log("❗️ could not render the profile page with you user's posts"));
+});
+
+/* router.get("/auth/:id/edit-profile", (req, res) =>{
+  const { id } = req.params;
+
+  User.findById(id)
+  .then((userEdit) => {
+    res.render("/edit-profile", userEdit);
+  })
+  .catch((err) => console.log(err));
+}); */
+
+router.get("/posts", (req, res, next) => {
+  Post.find({})
+    .populate("author")
+    .then((postsFromDB) => {
+      res.render("posts/post-list", { posts: postsFromDB });
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+router.get("/create-post", (req, res) => {
+  res.render("posts/create-post");
+});
+
+router.post('/create-post', fileUploader.single('image'), (req, res) => {
+  const { title, country, link } = req.body;
+  //console.log(req.file)
+  let image;
+
+  if (req.file !== undefined) {
+    image = req.file.path;
+  } else {
+    image = ("/images/paper-bag.png");
+  }
+  Post.create({ title, country, link, picture: image })
+    .then(dbPost => {
+    return User.findByIdAndUpdate({_id: req.session.currentUser._id }, { $push: { posts: dbPost._id } });
+    })
+    .then(() => res.redirect('/userProfile' ))
+    .catch(error => console.log(`Error while creating a new post: ${error}`));
+});
+
+
+
+
+router.get("/logout", (req, res) => {
+  res.redirect("/");
+});
+
+router.post("/logout", (req, res) => {
+  req.session.destroy();
+  res.redirect("/");
+});
 
 module.exports = router;
