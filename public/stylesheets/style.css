@@ -41,5 +41,25 @@ img{
 .row-balance{
   padding: 20px;
 }
+.btn-grad {background-image: linear-gradient(to right, #f9e5d3 0%, #FEFDFC  51%, #f9e5d3  100%)}
+.btn-grad {
+   margin: 10px;
+   padding: 15px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: #696969;            
+   box-shadow: 0 0 20px #eee;
+   display: block;
+   border: 0px;
+ }
+
+ .btn-grad:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #A9A9A9;
+   text-decoration: none;
+ }
+
 
 /*# sourceMappingURL=style.css.map */
