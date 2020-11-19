@@ -1,48 +1,39 @@
-<div class="row">
-    <div class="col-6">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quaerat eveniet ipsum ea consectetur voluptate quasi ullam tempore aliquid. Impedit deleniti culpa saepe doloribus, libero quam non rerum itaque quo?</p>
-    </div>
-</div>
-    <div class="row">
-    <div class="col-3">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quaerat eveniet ipsum ea consectetur voluptate quasi ullam tempore aliquid. Impedit deleniti culpa saepe doloribus, libero quam non rerum itaque quo?</p>
-    </div>
-</div>
-
-
 <h2>USER PROFILE</h2>
 
-    {{#if userInSession}}
-        <img src="{{userInSession.picture}}" alt="{{userInSession.username}}" width="200px">
-        <h2>Welcome, {{ userInSession.username }}!</h2>
-        <p>you are {{userInSession.name}} {{userInSession.lastName}}</p>
-        <button>
-            <a href="/create-post">Create a Post!</a>
-        </button>
-    
-        <p>you have {{userInSession.posts.length}} post </p>
-        
-            {{#each userInSession.posts}}
-                <img src="{{this.picture}}" alt="{{this.title}}" width="500px">
-                <p>{{this.title}}</p>
-                <p>{{this.intro}}</p>
-                <p>Located in: {{this.country}}</p>
-                <a href="{{this.link}}">Checkout the Website</a>
-                <a href="/userProfile/{{this.id}}/edit"><button>Edit post</button></a>
-                <form action="/posts/{{this._id}}/delete" method="POST"><button type="submit">Delete post</button>
-            {{/each}}
+{{#if userInSession}}
+<img src="{{userInSession.picture}}" alt="{{userInSession.username}}" width="250px">
+<h3>Welcome, {{ userInSession.username }}!</h3>
+<p>You are {{userInSession.name}} {{userInSession.lastName}}</p>
 
-    {{else}}
-        <p>Please Sign up/ Log in</p>
-    {{/if}}
+<button>
+    <a href="/create-post">Create a Post</a>
+</button>
+
+<p>You have {{userInSession.posts.length}} posts </p>
+
+<div class="container-fluid text-center">
+    <div class="row">
+        {{#each userInSession.posts}}
+        <div class="col-6">
+            <img src="{{this.picture}}" alt="{{this.title}}" width="600px">
+            <p>{{this.title}}</p>
+            <p>{{this.intro}}</p>
+            <p>Located in: {{this.country}}</p>
+            <div class="buttons">
+                    <a id="edit-post" href="/userProfile/{{this.id}}/edit"><button>Edit post</button></a>
+                </div>
+                <div id="delete-post">
+                    <form action="/posts/{{this._id}}/delete" method="POST"><button type="submit">Delete post</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+{{else}}
+<p>Please Sign up/ Log in</p>
+{{/if}}
 
 
-    <button>
-        <a href="/posts">Check out all the Post!</a>
-    </button>
-
-
-
-
-   
-
+<button>
+    <a href="/posts">Check out all the Posts!</a>
+</button>
