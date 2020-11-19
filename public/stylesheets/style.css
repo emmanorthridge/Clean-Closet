@@ -27,7 +27,7 @@ img{
   
 }
 .big-title{
-  padding: 40px;
+  padding: 30px;
   font-size: 4rem ;
   font-weight: 700;
 }
@@ -41,5 +41,77 @@ img{
 .row-balance{
   padding: 20px;
 }
+.btn-grad {background-image: linear-gradient(to right, #f9e5d3 0%, #FEFDFC  51%, #f9e5d3  100%)}
+.btn-grad {
+   margin: 10px;
+   padding: 15px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: #696969;            
+   box-shadow: 0 0 20px #eee;
+   display: block;
+   border: 0px;
+ }
+
+ .btn-grad:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #A9A9A9;
+   text-decoration: none;
+ }
+
+
+
+
+
+
+
+
+ .example {
+  position: relative;
+  padding: 0;
+  width: 600px;
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.content {
+  opacity: 0;
+  font-size: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ffffff;
+  background-color: rgba(200, 200, 200, 0.5);
+  width: 600px;
+  height: 900px;
+  -webkit-transition: all 400ms ease-out;
+  -moz-transition: all 400ms ease-out;
+  -o-transition: all 400ms ease-out;
+  -ms-transition: all 400ms ease-out;
+  transition: all 400ms ease-out;
+  text-align: center;
+}
+
+.example .content:hover {
+  opacity: 1;
+}
+
+.example .content .text {
+  height: 0;
+  opacity: 1;
+  transition-delay: 0s;
+  transition-duration: 0.4s;
+  color: black;
+}
+
+.example .content:hover .text {
+  opacity: 1;
+  transform: translateY(250px);
+  -webkit-transform: translateY(250px);
+}
+
 
 /*# sourceMappingURL=style.css.map */
