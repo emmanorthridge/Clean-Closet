@@ -113,5 +113,16 @@ img{
   -webkit-transform: translateY(250px);
 }
 
-
 /*# sourceMappingURL=style.css.map */
+
+.buttons {
+  font-size: 1em;
+}
+
+#edit-post {
+  font-size: 1em;
+}
+
+#delete-post {
+  padding-top: 10px
+}
