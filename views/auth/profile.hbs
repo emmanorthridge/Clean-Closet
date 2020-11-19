@@ -1,3 +1,15 @@
+<div class="row">
+    <div class="col-6">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quaerat eveniet ipsum ea consectetur voluptate quasi ullam tempore aliquid. Impedit deleniti culpa saepe doloribus, libero quam non rerum itaque quo?</p>
+    </div>
+</div>
+    <div class="row">
+    <div class="col-3">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quaerat eveniet ipsum ea consectetur voluptate quasi ullam tempore aliquid. Impedit deleniti culpa saepe doloribus, libero quam non rerum itaque quo?</p>
+    </div>
+</div>
+
+
 <h2>USER PROFILE</h2>
 
     {{#if userInSession}}
@@ -11,7 +23,7 @@
         <p>you have {{userInSession.posts.length}} post </p>
         
             {{#each userInSession.posts}}
-                <img src="{{this.picture}}" alt="{{this.title}}" width= "500px">
+                <img src="{{this.picture}}" alt="{{this.title}}" width="500px">
                 <p>{{this.title}}</p>
                 <p>{{this.intro}}</p>
                 <p>Located in: {{this.country}}</p>
