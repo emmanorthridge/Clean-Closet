@@ -1,7 +1,19 @@
+<div class="row">
+    <div class="col-6">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quaerat eveniet ipsum ea consectetur voluptate quasi ullam tempore aliquid. Impedit deleniti culpa saepe doloribus, libero quam non rerum itaque quo?</p>
+    </div>
+</div>
+    <div class="row">
+    <div class="col-3">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas quaerat eveniet ipsum ea consectetur voluptate quasi ullam tempore aliquid. Impedit deleniti culpa saepe doloribus, libero quam non rerum itaque quo?</p>
+    </div>
+</div>
+
+
 <h2>USER PROFILE</h2>
 
     {{#if userInSession}}
-        <img src="{{userInSession.picture}}" alt="{{userInSession.username}}" width="100px">
+        <img src="{{userInSession.picture}}" alt="{{userInSession.username}}" width="200px">
         <h2>Welcome, {{ userInSession.username }}!</h2>
         <p>you are {{userInSession.name}} {{userInSession.lastName}}</p>
         <button>
@@ -11,9 +23,9 @@
         <p>you have {{userInSession.posts.length}} post </p>
         
             {{#each userInSession.posts}}
-                <img src="{{this.picture}}" alt="{{this.title}}" width="50px">
+                <img src="{{this.picture}}" alt="{{this.title}}" width="500px">
                 <p>{{this.title}}</p>
-                <p>About {{this.title}} : {{this.intro}}</p>
+                <p>{{this.intro}}</p>
                 <p>Located in: {{this.country}}</p>
                 <a href="{{this.link}}">Checkout the Website</a>
                 <a href="/userProfile/{{this.id}}/edit"><button>Edit post</button></a>
