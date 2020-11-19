@@ -68,6 +68,10 @@ img-padding{
 .row-balance{
   padding: 20px;
 }
+.profile-section img{
+  border-radius: 50%;
+  border: 10px solid greenyellow;
+}
 .btn-grad {background-image: linear-gradient(to right, #f9e5d3 0%, #FEFDFC  51%, #f9e5d3  100%)}
 .btn-grad {
    margin: 10px;
