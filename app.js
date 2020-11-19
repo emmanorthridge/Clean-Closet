@@ -14,7 +14,8 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 const app = express();
 
 
-require('./configs/db.config');
+const { connectDB } = require('./configs/db.config');
+connectDB();
 require('./configs/session.configs')(app);
 
 
@@ -31,7 +32,7 @@ app.use(require('node-sass-middleware')({
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
-      
+
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -52,3 +53,6 @@ const authRouter = require('./routes/auth');
 app.use('/', authRouter); 
 
 module.exports = app;
+
+
+//test
