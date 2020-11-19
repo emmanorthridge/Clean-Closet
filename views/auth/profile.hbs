@@ -15,10 +15,15 @@
     <div class="row">
         {{#each userInSession.posts}}
         <div class="col-6">
-            <img src="{{this.picture}}" alt="{{this.title}}" width="600px">
+            <div class="anim-post-list">
+            <img src="{{this.picture}}" alt="{{this.title}}" width="500px" height="750px">
+            <div class="anim-post-list-content">
+            <a href="/posts"><div class="anim-post-list-text"><a class="a-checkout" href="{{this.link}}">Go to {{this.brandsName}}'s website</a></div></a>
+            </div>
             <p>{{this.title}}</p>
             <p>{{this.intro}}</p>
             <p>Located in: {{this.country}}</p>
+            </div>
             <div class="buttons">
                     <a id="edit-post" href="/userProfile/{{this.id}}/edit"><button>Edit post</button></a>
                 </div>
@@ -32,7 +37,6 @@
 {{else}}
 <p>Please Sign up/ Log in</p>
 {{/if}}
-
 
 <button>
     <a href="/posts">Check out all the Posts!</a>
