@@ -14,6 +14,9 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 const app = express();
 
 
+
+app.use(favicon(__dirname + '/public/images/favicon.ico'));
+
 const { connectDB } = require('./configs/db.config');
 connectDB();
 require('./configs/session.configs')(app);

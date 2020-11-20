@@ -1,47 +1,56 @@
-
-*{
+* {
   margin: 0 auto;
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   background-color: #fbefe4;
-  color: #696969 ;
+  color: #696969;
 }
-body{
+body {
   background-color: #fbefe4;
   font-size: 20px;
 }
-a{
+a {
   padding: 5px;
   font-size: 2rem;
   color: #696969;
   text-decoration: none;
 }
-a:hover{
-  color: #A9A9A9 ;
+a:hover {
+  color: #a9a9a9;
   text-decoration: none;
 }
-.a-checkout{
+.error {
+  font-size: 2rem;
+  padding: 20px;
+  border: 2px dotted black;
+}
+.a-checkout {
   margin-top: -20px;
   font-size: 2rem;
   color: black;
   text-decoration: none;
 }
-.a-checkout:hover{
-  color: #A9A9A9 ;
+.a-checkout:hover {
+  color: #a9a9a9;
   text-decoration: none;
 }
-img-padding{
+img-padding {
   padding: 40px;
 }
-.hr-style{
-  padding: 50px;
-  width: 80%;
+
+.my-nav-bar{
+  width: 50%;
 }
-.big-title{
+.hr-style{
+  padding: 30px;
+  width: 60%;
+
+}
+.big-title {
   padding: 10px;
-  font-size: 6rem ;
+  font-size: 6rem;
   font-weight: 700;
 }
-.THE-title{
+.THE-title {
   transform: translate(-1%, -1%);
   text-transform: uppercase;
   transition-duration: 1s;
@@ -49,53 +58,101 @@ img-padding{
 }
 .THE-title:hover {
   letter-spacing: 10px;
-  color: #A9A9A9;
+  color: #a9a9a9;
 }
-.hTwo{
+.hTwo {
   padding: 30px;
 }
-.intro-texts{
+.intro-texts {
   margin-top: 40px;
   margin-bottom: 40px;
   line-height: 1.5;
   padding: 20px;
   width: 500px;
 }
-.bold{
+.bold {
   padding: 10px;
   font-style: oblique;
 }
-.row-balance{
+.row-balance {
   padding: 20px;
 }
-.btn-grad {background-image: linear-gradient(to right, #f9e5d3 0%, #FEFDFC  51%, #f9e5d3  100%)}
+.btn-balance {
+  padding: 10px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+.bold2 {
+  font-size: 3rem;
+  padding: 10px;
+  font-style: oblique;
+}
+.signup-form {
+  width: 40%;
+  padding: 30px;
+}
+.signup-form btn {
+  padding: 20px;
+}
+.signup-form input {
+  background-color: #fbefe4;
+  border-radius: 0%;
+  padding: 10px;
+}
+
+.login-form{
+  width: 40%;
+  padding: 30px;
+}
+.login-form btn{
+  padding: 20px;
+}
+.login-form input{
+  background-color: #fbefe4;
+  border-radius: 0%;
+  padding: 10px;
+}
+.profile-section{
+  border-radius: 50%;
+  border: 0px;
+  padding: 20px;
+}
 .btn-grad {
-   margin: 10px;
-   padding: 15px 45px;
-   text-align: center;
-   text-transform: uppercase;
-   transition: 0.5s;
-   background-size: 200% auto;
-   color: #696969;            
-   box-shadow: 0 0 20px #eee;
-   display: block;
-   border: 0px;
- }
- #location{
-  color: #8F8F8F;
- }
- #author{
-  color: #A9A9A9;
- }
- .btn-grad:hover {
-   background-position: right center; /* change the direction of the change here */
-   color: #A9A9A9;
-   text-decoration: none;
- }
-.each-post-list{
+  background-image: linear-gradient(
+    to right,
+    #f9e5d3 0%,
+    #fefdfc 51%,
+    #f9e5d3 100%
+  );
+}
+.btn-grad {
+  margin-top: 40px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: #696969;
+  box-shadow: 0 0 20px #eee;
+  display: block;
+  border: 0px;
+  width: 100%;
+}
+#location {
+  color: #8f8f8f;
+}
+#author {
+  color: #a9a9a9;
+}
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #a9a9a9;
+  text-decoration: none;
+}
+.each-post-list {
   padding: 20px;
 }
- .example {
+.example {
   position: relative;
   padding: 0;
   width: 600px;
@@ -176,14 +233,9 @@ img-padding{
   transform: translateY(250px);
   -webkit-transform: translateY(250px);
 }
-.footer{
+.footer {
   padding: 40px;
 }
-
-
-
-
-
 
 /* body {
   margin: 0;
@@ -191,8 +243,6 @@ img-padding{
  content/uploads/sites/6/2017/11/04133712/waterfall.jpg');
   background-size: 160%;
 } */
-
-
 
 /*# sourceMappingURL=style.css.map */
 
@@ -205,5 +255,35 @@ img-padding{
 }
 
 #delete-post {
-  padding-top: 10px
+  padding-top: 10px;
+}
+
+#comment-box {
+  background-color: #fbefe4;
+}
+
+.create-form {
+  width: 40%;
+  padding: 30px;
+}
+.create-form btn {
+  padding: 20px;
+}
+.create-form input {
+  background-color: #fbefe4;
+  border-radius: 0%;
+  padding: 10px;
+}
+
+.edit-form {
+  width: 40%;
+  padding: 30px;
+}
+.edit-form btn {
+  padding: 20px;
+}
+.edit-form input {
+  background-color: #fbefe4;
+  border-radius: 0%;
+  padding: 10px;
 }
