@@ -36,9 +36,14 @@ a:hover {
 img-padding {
   padding: 40px;
 }
-.hr-style {
-  padding: 50px;
-  width: 80%;
+
+.my-nav-bar{
+  width: 50%;
+}
+.hr-style{
+  padding: 30px;
+  width: 60%;
+
 }
 .big-title {
   padding: 10px;
@@ -94,7 +99,20 @@ img-padding {
   border-radius: 0%;
   padding: 10px;
 }
-.profile-section {
+
+.login-form{
+  width: 40%;
+  padding: 30px;
+}
+.login-form btn{
+  padding: 20px;
+}
+.login-form input{
+  background-color: #fbefe4;
+  border-radius: 0%;
+  padding: 10px;
+}
+.profile-section{
   border-radius: 50%;
   border: 0px;
   padding: 20px;
