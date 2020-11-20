@@ -1,39 +1,35 @@
-<div class="create-post">
-  <div class="row">
-    <div class="col-6">
+      <h2 class="bold2">CREATE POST</h2>
 
-      <h2>CREATE POST</h2>
-
-      <form action="/create-post" method="post" enctype="multipart/form-data">
+      <form action="/create-post" method="post" enctype="multipart/form-data" class="create-form">
 
         <div class="form-group">
           <label for="picture">Picture: </label>
-          <input type="file" name="image" id="" />
+          <input class="btn-grad"  type="file" name="image" id="" />
         </div>
 
         <div class="form-group">
           <label for="title">Title: </label>
-          <input type="text" id="title" name="title" required>
+          <input  class="form-control" type="text" id="title" name="title" required>
         </div>
 
         <div class="form-group">
           <label for="country">Country: </label>
-          <input type="text" id="country" name="country" required>
+          <input class="form-control" type="text" id="country" name="country" required>
         </div>
 
         <div class="form-group">
           <label for="link">Brand's Website: </label>
-          <input type="url" id="link" name="link" required>
+          <input class="form-control"  type="url" id="link" name="link" required>
         </div>
 
         <div class="form-group">
           <label for="brandsName">Brand's Name: </label>
-          <input type="text" id="brandsName" name="brandsName" required>
+          <input class="form-control"  type="text" id="brandsName" name="brandsName" required>
         </div>
 
         <div class="form-group">
           <label for="intro">Tell us about the brand: </label>
-          <input type="text" id="intro" name="intro" required>
+          <textarea class="form-control" id="comment-box" rows="10" type="text" id="intro" name="intro" required></textarea>
         </div>
 
         <button type='submit'>Create Post</button>
