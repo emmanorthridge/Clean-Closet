@@ -181,10 +181,6 @@ img-padding{
 }
 
 
-
-
-
-
 /* body {
   margin: 0;
   background: url('https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp- 
@@ -206,4 +202,16 @@ img-padding{
 
 #delete-post {
   padding-top: 10px
+}
+
+.create-post {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
