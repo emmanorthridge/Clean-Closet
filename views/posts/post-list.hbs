@@ -2,20 +2,20 @@
     <h2 class="THE-title hTwo">POST LIST | <a href="/userProfile">Profile</a></h2>
     <div class="container-fluid text-center">
         <div class="row text-justify">
-                    {{#each posts}}
+                {{#each posts}}
                     <div class="col-6 each-post-list">
                         <div class="anim-post-list">
-                        <img src="{{this.picture}}" alt="{{this.title}}" width="500px" height="750px">
-                        <div class="anim-post-list-content">
-                        <a href="/posts"><div class="anim-post-list-text"><a class="a-checkout" href="{{this.link}}">Go to {{this.brandsName}}'s website</a></div></a>
-                        </div>
-                        <h1 class="bold">{{this.brandsName}}</h1>
-                        <p>{{this.intro}}</p>
-                        <p id="location">Located in: {{this.country}}</p>
-                        <p id="author">{{this.title}}</p>
+                            <img src="{{this.picture}}" alt="{{this.title}}" width="500px" height="750px">
+                                <div class="anim-post-list-content">
+                                    <a href="/posts"><div class="anim-post-list-text"><a class="a-checkout" href="{{this.link}}">Go to {{this.brandsName}}'s website</a></div></a>
+                                </div>
+                            <h1 class="bold">{{this.brandsName}}</h1>
+                            <p>{{this.intro}}</p>
+                            <p id="location">Located in: {{this.country}}</p>
+                            <p id="author">{{this.title}}</p>
                         </div>
                     </div>
-                    {{/each}}
+                {{/each}}
          </div> 
     </div>
 </div>

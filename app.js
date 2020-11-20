@@ -13,22 +13,16 @@ const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.
 
 const app = express();
 
-
-
 app.use(favicon(__dirname + '/public/images/favicon.ico'));
 
 const { connectDB } = require('./configs/db.config');
 connectDB();
 require('./configs/session.configs')(app);
 
-
-// Middleware Setup
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-
-// Express View engine setup
 
 app.use(require('node-sass-middleware')({
   src:  path.join(__dirname, 'public'),
@@ -36,18 +30,12 @@ app.use(require('node-sass-middleware')({
   sourceMap: true
 }));
 
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
-
-
-// default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
-
-
 
 const index = require('./routes/index');
 app.use('/', index);
@@ -56,5 +44,3 @@ const authRouter = require('./routes/auth');
 app.use('/', authRouter); 
 
 module.exports = app;
-
-
