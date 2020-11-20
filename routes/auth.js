@@ -125,7 +125,6 @@ router.get("/create-post", (req, res) => {
 
 router.post("/create-post", fileUploader.single("image"), (req, res) => {
   const { title, country, link, intro, brandsName } = req.body;
-  //console.log(req.file)
   let image;
 
   if (req.file !== undefined) {

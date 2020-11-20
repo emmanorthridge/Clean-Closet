@@ -215,11 +215,9 @@ img-padding {
   transition: all 400ms ease-out;
   text-align: center;
 }
-
 .anim-post-list .anim-post-list-content:hover {
   opacity: 1;
 }
-
 .anim-post-list .anim-post-list-content .anim-post-list-text {
   height: 0;
   opacity: 1;
@@ -227,7 +225,6 @@ img-padding {
   transition-duration: 0.4s;
   color: black;
 }
-
 .anim-post-list .anim-post-list-content:hover .anim-post-list-text {
   opacity: 1;
   transform: translateY(250px);
@@ -236,32 +233,18 @@ img-padding {
 .footer {
   padding: 40px;
 }
-
-/* body {
-  margin: 0;
-  background: url('https://s3-us-west-2.amazonaws.com/uw-s3-cdn/wp- 
- content/uploads/sites/6/2017/11/04133712/waterfall.jpg');
-  background-size: 160%;
-} */
-
-/*# sourceMappingURL=style.css.map */
-
 .buttons {
   font-size: 1em;
 }
-
 #edit-post {
   font-size: 1em;
 }
-
 #delete-post {
   padding-top: 10px;
 }
-
 #comment-box {
   background-color: #fbefe4;
 }
-
 .create-form {
   width: 40%;
   padding: 30px;
@@ -274,7 +257,6 @@ img-padding {
   border-radius: 0%;
   padding: 10px;
 }
-
 .edit-form {
   width: 40%;
   padding: 30px;
@@ -287,3 +269,4 @@ img-padding {
   border-radius: 0%;
   padding: 10px;
 }
+/*# sourceMappingURL=style.css.map */

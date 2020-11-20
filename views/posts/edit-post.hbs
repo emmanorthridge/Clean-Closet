@@ -1,39 +1,26 @@
 <h2 class="bold2">EDIT POST:</h2>
-
     <form action="/userProfile/{{this.id}}/edit" method="post" class="edit-form">
-
         <div class="form-group">
             <label for="title">Title: </label>
             <input class="form-control" type="text" id="title" name="title" value="{{this.title}}" required>
         </div>
-
         <div class="form-group">
             <label for="country">Country: </label>
             <input class="form-control" type="text" id="country" name="country" value="{{this.country}}" required>
         </div>
-
         <div class="form-group">
             <label for="link">Brand's Website: </label>
             <input class="form-control" type="url" id="link" name="link" value="{{this.link}}" required>
         </div>
-
         <div class="form-group">
             <label for="brandsName">Brand's Name: </label>
             <input class="form-control" type="text" id="brandsName" name="brandsName" value="{{this.brandsName}}"
                 required>
         </div>
-
         <div class="form-group">
             <label for="intro">Tell us about the brand: </label>
-            <textarea class="form-control" id="comment-box" rows="10" type="text" id="intro" name="intro"
-                value="{{this.intro}}" required>{{this.intro}}</textarea>
+            <textarea class="form-control" id="comment-box" rows="10" type="text" id="intro" name="intro" value="{{this.intro}}" required>{{this.intro}}</textarea>
         </div>
-
         <button type='submit'>Update your post</button>
-
-
     </form>
-
-    </div>
-  </div>
-</div>
+   

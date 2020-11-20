@@ -45,16 +45,7 @@ const posts = [
     link: "string",
     intro: "string",
   },
-]
-
-/* const countries = [
-  {
-    country: "Italy"
-  },
-  {
-    country: "Spain"
-  }
-] */
+];
 
 User.create(users)
       .then((usersFromDB) => {
@@ -71,13 +62,3 @@ Post.create(posts)
         })
         .catch((err) =>
           console.log(`Error from Post.create in seeds.js file: ${err}`));
-
-/* Country.create(countries)
-      .then((countriesFromDB) => {
-        console.log(`added ${countriesFromDB.length} countries in database`);
-        mongoose.connection.close();
-      })
-      .catch((err) =>
-        console.log(`Error from Country.create in seeds.js file: ${err}`));
-
- */
