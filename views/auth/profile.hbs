@@ -1,29 +1,32 @@
-
 {{#if userInSession}}
 <img class="profile-section" src="{{userInSession.picture}}" alt="{{userInSession.username}}" width="250px">
 <h1>Welcome, {{userInSession.name}} {{userInSession.lastName}}!</h1>
- <button class="btn-balance"><a href="/create-post">Create a Post</a></button>
+<button class="btn-balance"><a href="/create-post">Create a Post</a></button>
 <div class="container-fluid text-center ">
     <div class="row text-justify">
         {{#each userInSession.posts}}
         <div class="col-6">
             <div class="anim-post-list">
-            <img src="{{this.picture}}" alt="{{this.title}}" width="500px" height="750px">
-            <div class="anim-post-list-content">
-            <a href="/posts"><div class="anim-post-list-text"><a class="a-checkout" href="{{this.link}}">Go to {{this.brandsName}}'s website</a></div></a>
-            </div>
-            <p>{{this.title}}</p>
-            <p>{{this.intro}}</p>
-            <p>Located in: {{this.country}}</p>
+                <img src="{{this.picture}}" alt="{{this.title}}" width="500px" height="750px">
+                <div class="anim-post-list-content">
+                    <a href="/posts">
+                        <div class="anim-post-list-text"><a class="a-checkout" href="{{this.link}}">Go to
+                                {{this.brandsName}}'s website</a></div>
+                    </a>
+                </div>
+                <p>{{this.title}}</p>
+                <p>{{this.intro}}</p>
+                <p>Located in: {{this.country}}</p>
             </div>
             <div class="row">
                 <div class="col-3">
                     <a id="edit-post" href="/userProfile/{{this.id}}/edit"><button>Edit post</button></a>
                 </div>
                 <div class="col-3">
-                    <form action="/posts/{{this.id}}/delete" method="POST"><button type="submit">Delete post</button> </form>
+                    <form action="/posts/{{this.id}}/delete" method="POST"><button type="submit">Delete post</button>
+                    </form>
+                </div>
             </div>
-            </div> 
         </div>
         {{/each}}
     </div>
