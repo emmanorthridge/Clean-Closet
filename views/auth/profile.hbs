@@ -1,3 +1,4 @@
+
 {{#if userInSession}}
 <img class="profile-section" src="{{userInSession.picture}}" alt="{{userInSession.username}}" width="250px">
 <h1>Welcome, {{userInSession.name}} {{userInSession.lastName}}!</h1>
@@ -16,6 +17,7 @@
                 </div>
                 <p>{{this.title}}</p>
                 <p>{{this.intro}}</p>
+            
                 <p>Located in: {{this.country}}</p>
             </div>
             <div class="row">
