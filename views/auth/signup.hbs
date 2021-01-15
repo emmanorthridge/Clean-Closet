@@ -1,35 +1,35 @@
 <div class="signup justify-content-left">
     <h2 class="bold2">SIGN UP:</h2>
-    <form action="/signup" method="POST"  enctype="multipart/form-data" class="signup-form">
-        <div class="form-group" >
-        <label for="picture">Profile picture: </label>
-        <input class="btn-grad" type="file" name="image" id="" />
+    <form action="/signup" method="POST" enctype="multipart/form-data" class="signup-form">
+        <div class="form-group">
+            <label for="picture">Profile picture: </label>
+            <input class="btn-grad" type="file" name="image" id="" />
         </div>
-        <div class="form-group" >
-        <label for="input-username">Username</label>
-        <input class="form-control" type="text" id="input-username" name="username" placeholder="Add username" />
+        <div class="form-group">
+            <label for="input-username">Username</label>
+            <input class="form-control" type="text" id="input-username" name="username" placeholder="Add username" />
         </div>
-        <div class="form-group" >
-        <label for="input-password">Password</label>
-        <input class="form-control"  type="password" id="input-password" name="password" placeholder="*******" />
+        <div class="form-group">
+            <label for="input-password">Password</label>
+            <input class="form-control" type="password" id="input-password" name="password" placeholder="*******" />
         </div>
-        <div class="form-group" >
-        <label for="input-name">Name</label>
-        <input class="form-control"  type="text" id="input-name" name="name" placeholder="Add Name" />
+        <div class="form-group">
+            <label for="input-name">Name</label>
+            <input class="form-control" type="text" id="input-name" name="name" placeholder="Add Name" />
         </div>
-        <div class="form-group" >
-        <label for="input-last-name">Last Name</label>
-        <input class="form-control"  type="text" id="input-last-name" name="lastName" placeholder="Add Lastname" />
+        <div class="form-group">
+            <label for="input-last-name">Last Name</label>
+            <input class="form-control" type="text" id="input-last-name" name="lastName" placeholder="Add Lastname" />
         </div>
-        <div class="form-group" >
-        <label for="input-country">Country</label>
-        <input class="form-control"  type="text" id="input-country" name="country" placeholder="Add country" />
+        <div class="form-group">
+            <label for="input-country">Country</label>
+            <input class="form-control" type="text" id="input-country" name="country" placeholder="Add country" />
         </div>
-        <div class="form-group" ></div>
+        <div class="form-group"></div>
         <button class="btn-grad" type="submit">Create Account</button>
-        </div>
-    </form>
-    {{#if errorMessage}}
-    <p class="error">{{errorMessage}}</p>
-    {{/if}}
+</div>
+</form>
+{{#if errorMessage}}
+<p class="error">{{errorMessage}}</p>
+{{/if}}
 </div>

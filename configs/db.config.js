@@ -3,6 +3,8 @@ const mongoURI = "mongodb://localhost/clean-closet";
 
 exports.connectDB = () =>
 mongoose.connect(process.env.MONGO_ATLAS_URI || mongoURI, {
+
+
   useCreateIndex:true,
   useNewUrlParser: true,
   useUnifiedTopology: true,
